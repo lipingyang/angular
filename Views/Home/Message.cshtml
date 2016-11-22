@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@Styles.Render("~/Content/message")
+
+<div ng-app="message" ng-controller="MessageController as message">
+    <!--行情中心图片-->
+    <div class="nav-pic">
+        <img src="../images/marketBg.png" />
+    </div>
+    <!--实时交易，虚拟交易-->
+    <div class="choose">
+        <div class="middle">
+            <ul class="nav navbar-nav nav-pills">
+                <li>
+                    <a href="#/important">要闻</a>
+                </li>
+                <li>
+                    <a href="#/push">推送</a>
+                </li>
+                <li>
+                    <a href="#/live">直播</a>
+                </li>
+                <li>
+                    <a href="#/foreign">外汇</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main" ng-view>
+        
+    </div>
+</div>
+
+
+
+@Scripts.Render("~/bundles/message")

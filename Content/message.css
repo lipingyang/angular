@@ -1,0 +1,82 @@
+
+.main{
+	width: 1000px;
+	margin: 20px auto 100px;
+	overflow: hidden;
+}
+.left{
+	width: 730px;
+	float: left;
+}
+.listview {
+	margin-top:30px;
+	padding: 20px;
+    background: #fff;
+}
+.listview h1{
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-bottom: 20px;
+}
+.listview li{
+	overflow: hidden;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 20px 0 20px 0;
+}
+.listview .icon{
+	width: 280px;
+}
+.listview .data{
+	width: 410px;
+	font-family: "microsoft yahei";
+}
+.listview .data h4{
+	font-size: 20px;	
+	margin-bottom: 10px;
+}
+.listview .data h5{
+	color: #666666;
+	line-height: 20px;
+}
+.listview .data h6{
+	color: #ff4800;
+	line-height: 40px;
+}
+.listview .data span{
+	display: inline-block;
+	color: #ccc;
+	line-height: 20px;
+	margin-left: 5px;
+}
+.right{
+	width: 250px;
+	float: right;
+    background: #fff;
+    padding: 20px;
+}
+.right ul{
+	padding: 0;
+}
+.right h1{
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-bottom: 20px;
+}
+.red-dotted{
+	color: #e1051a;
+}
+.right li{
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 20px 0 20px 0;
+	cursor: pointer;
+}
+.right span{
+	font-family: "microsoft yahei";
+}
+.right img{
+	margin-top: 10px;
+	width: 200px;
+	height: 100px;
+}

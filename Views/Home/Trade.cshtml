@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@Styles.Render("~/Content/trade")
+<style>
+    .input-group{
+    		width: 312px;
+    		height: 34px;
+    		float: right;
+    		margin: 8px 5px 0 0;
+    		font-size: 12px;
+            border-radius:3px;
+            overflow:hidden;
+    	}
+    	.input-group .form-control{
+    		border: none;
+    	}
+</style>
+<div ng-app="trade" ng-controller="TradeController as trade">
+    <!--行情中心图片-->
+    <div class="nav-pic">
+        <img src="../images/marketBg.png" />
+    </div>
+    <section ng-controller="PanelController as panel">
+        <!--实时交易，虚拟交易-->
+        <div class="choose">
+            <div class="middle">
+                <ul class="nav navbar-nav nav-pills">
+                    <li ng-class="{active:panel.isSelected(1)}" class="active">
+                        <a href ng-click="panel.selectTab(1)">实时交易</a>
+                    </li>
+                    <li ng-class="{active:panel.isSelected(2)}">
+                        <a href ng-click="panel.selectTab(2)">虚拟交易</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--实时交易-->
+        <div class="stock-detail panel" ng-show="panel.isSelected(1)">
+            <div class="detail-head">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="输入股票/基金代码、简称或关键字">
+                    <div class="search">
+                    </div>
+                </div>
+            </div>
+            <!--各只股票-->
+            <table>
+                <tr class="title">
+                    <td ng-repeat="name in trade.tableTitle">{{name}}</td>
+                </tr>
+                <tr class="detail" ng-repeat="detail in trade.tableList">
+                    <td>{{detail.number}}</td>
+                    <td>{{detail.date}}</td>
+                    <td>{{detail.code}}</td>
+                    <td>{{detail.short}}</td>
+                    <td>{{detail.new}}</td>
+                    <td>{{detail.price}}</td>
+                    <td>{{detail.hold}}</td>
+                    <td>{{detail.premiun}}</td>
+                    <td><span class="buy">买<span /></td>
+                    <td><span class="sale">卖<span /></td>
+                </tr>
+            </table>
+            <div class="page">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>下一页</span>
+                <span>尾页</span>
+                <span>1/43</span>
+            </div>
+        </div>
+        <!-- 虚拟交易-->
+        <div class="virtual-trade panel" ng-show="panel.isSelected(2)">
+            <div class="virtual-left">
+                <ul>
+                    <li class="deep-red">总收益榜</li>
+                    <li class="normal-red">日赛益榜</li>
+                    <li class="normal-red">周赛益榜</li>
+                    <li class="normal-red">月赛益榜</li>
+                </ul>
+                <table>
+                    <tr>
+                        <th ng-repeat="one in trade.virtualTitle">{{one}}</th>
+                    </tr>
+                    <tr ng-repeat="detail in trade.virtualList">
+                        <td>{{detail.number}}</td>
+                        <td>{{detail.name}}</td>
+                        <td class="span-red">{{detail.total}}</td>
+                        <td class="span-red">{{detail.oneday}}</td>
+                        <td>{{detail.rank}}</td>
+                        <td>{{detail.asset}}</td>
+                        <td>{{detail.operate}}</td>
+                    </tr>
+                    <tr>
+                </table>
+                <div class="vitrual-page">
+                    <span class="vitrual-page-choose">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <div class="buy-sale">
+                    <span>买入</span>
+                    <span>卖出</span>
+                </div>
+            </div>
+            <div class="virtual-right">
+                <h3>模拟盘交易规则</h3>
+                <h4>
+                    <span>1</span>
+                    模拟盘交易规则
+                </h4>
+                <ol>
+                    <li ng-repeat="rule in trade.rule">{{rule}}</li>
+                </ol>
+                <h4>
+                    <span>2</span>
+                    模拟盘交易时间
+                </h4>
+                <ol>
+                    <li ng-repeat="time in trade.time">{{time}}</li>
+                </ol>
+                <div class="check-more">查看详情</div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+
+
+
+
+
+@Scripts.Render("~/bundles/trade")

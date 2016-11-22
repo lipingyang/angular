@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/calendar")
+<div ng-app="calendar" ng-controller="CalendarController as calendar">
+    <!--行情中心图片-->
+    <div class="nav-pic">
+        <img src="../images/marketBg.png" />
+    </div>
+    <!--日历以及新闻-->
+    <div class="calendar">
+        <div class="left pull-left">
+            <div class="datepicker ll-skin-santiago"></div>
+        </div>
+        <div class="right pull-right">
+            <div class="news" ng-repeat="item in calendar.source">
+                <div class="news-source pull-left">{{item.title}}</div>
+                <div class="news-contain pull-left">
+                    <div class="contain-head">
+                        <img src="../images/all.png" width="15" height="15" />
+                        <span>全部</span>
+                        <img src="../images/star.png" width="15" height="15" />
+                        <span>重要</span>
+                        <span class="pull-right">
+                            时间
+                            <img src="../images/sort.png" width="12" height="15" />
+                        </span>
+                    </div>
+                    <ul>
+                        <li ng-repeat="new in item.subs">
+                            <div class="flag pull-left">
+                                <img src="../images/flag.png" width="35" height="35" />
+                                <p>
+                                    <span class="gold-star">★</span>
+                                    <span class="gold-star">★</span>
+                                    <span class="gray-star">★</span>
+                                </p>
+                            </div>
+                            <div class="change pull-left">
+                                <h2>{{new.txt}}</h2>
+                                <p>
+                                    <span>前值：{{new.front}}</span>
+                                    <span>预期：{{new.expect}}</span>
+                                    <span>实际：{{new.reality}}</span>
+                                </p>
+                            </div>
+                            <div class="clock pull-left">
+                                {{new.clock}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@Scripts.Render("~/bundles/calendar")
+<script>
+		$(function() {
+			$(".datepicker").datepicker({
+				inline: true,
+				showOtherMonths: true
+			});
+		});
+</script>

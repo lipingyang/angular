@@ -1,0 +1,211 @@
+
+/*股票详情*/
+.stock-detail{
+	width: 1000px;
+	background: #fff;
+	margin: 20px auto 100px;
+	padding-bottom: 40px;
+}
+.detail-head{
+	background: #e1051a;
+	height: 50px;
+	width: 100%;
+}
+.search{
+	width: 10%;
+	height: 34px;
+	float: right;
+	background: url(../images/search.png) no-repeat center;
+	background-size: 28px;
+	background-color: #fff;
+	cursor: pointer;
+}
+.stock-detail table{
+	width: 980px;
+	margin: 0 auto;
+}
+.stock-detail table tr{
+	border-bottom: 1px solid #eeeeee;
+}
+.stock-detail table tr td{
+	width: 100px;
+	text-align: center;
+	font-family: "microsoft yahei";
+}
+.stock-detail table .title td{	
+	height: 60px;
+	font-weight: bold;
+}
+.stock-detail table .detail td{
+	height: 50px;
+	
+}
+.detail td:nth-child(3),.detail td:nth-child(4){
+    color: #2c98fc;
+}
+.detail td:nth-child(5){
+    color: #e1051a;
+}
+.detail td:nth-child(8){
+    color: #09c400;
+}
+.buy{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: #e1051a;
+	color: #fff;
+	line-height: 30px;
+}
+.sale{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: #3b5998;
+	color: #fff;
+	line-height: 30px;
+}
+.page{
+	width: 400px;
+	margin: 20px auto;
+}
+.page span{
+	display: inline-block;
+	font-size: 14px;
+	padding: 10px;
+	cursor: pointer;
+	color: #aaaaaa;
+	font-family: "microsoft yahei";
+}
+/*虚拟交易*/
+.virtual-trade{
+	width: 1000px;
+	margin: 20px auto 100px;
+	overflow: hidden;
+	background: #F1F1F1;
+}
+.virtual-left{
+	width: 730px;
+	height: 750px;
+	float: left;
+	background: #fff;
+	padding: 20px;
+}
+.virtual-left li{
+	width: calc(25% - 1px);
+	line-height: 50px;
+	text-align: center;	
+	color: #fff;
+	font-size: 16px;
+	float: left;
+	border-right: 1px solid #fff;
+	cursor: pointer;
+	margin-bottom: 30px;
+}
+.normal-red{
+	background: #fa2035;
+}
+.deep-red{
+	background: #e1051a;
+}
+.virtual-left th{
+	width: 105px;
+	height: 40px;
+	text-align: center;
+	color: #fff;
+	background: #aaa;
+	font-weight: 100;
+	font-size: 15px;
+}
+.virtual-left td{
+	width: 105px;
+	height: 40px;
+	text-align: center;
+	font-family: "microsoft yahei";
+	font-weight: 150;
+}
+.virtual-left tr:nth-child(odd){
+    background: #dfdfdf;
+}
+.span-red{
+	color: #e1051a;
+}
+.vitrual-page{
+	width: 300px;
+	margin:20px  auto;
+}
+.vitrual-page-choose{
+	background: #e1051a;
+	color: #fff;
+	border: none;
+}
+.vitrual-page span{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+    border: 1px solid #aaa;
+    text-align: center;
+    cursor: pointer;
+}
+.virtual-right{
+	width:250px;
+	height: 750px;
+	float: right;
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 100px;
+}
+.virtual-right h3{
+	font-size: 22px;
+	font-weight: bold;
+	margin-top:10px;
+}
+.virtual-right h4 {
+	font-size: 16px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	font-family: "microsoft yahei";
+}
+.virtual-right h4 span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #e1051a;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 20px;
+	color: #fff;
+}
+.virtual-right ol{
+	margin-left:10px;
+}
+.virtual-right ol li{
+	font-family: "microsoft yahei";
+	line-height: 20px;
+}
+.check-more{
+	height: 40px;
+	width: 200px;
+	background: #e1051a;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	margin: 30px auto 0;
+	cursor: pointer;
+}
+.buy-sale{
+	width: 550px;
+	margin: 30px auto;
+}
+.buy-sale span{
+	display: inline-block;
+	width: 200px;
+	line-height: 40px;
+	text-align: center;
+	background: #e1051a;
+	color: #fff;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-left: 50px;
+	cursor: pointer;
+}

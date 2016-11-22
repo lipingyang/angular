@@ -1,0 +1,60 @@
+html,body{
+	font-family: "microsoft yahei";
+	height: 100%;
+	background: #f1f1f1;
+}
+.f-12{
+	font-size: 12px;
+}
+.middle{
+	width: 1000px;
+	margin: 0 auto;
+}
+ul li{
+	list-style: none;
+}
+ol,ul{
+	padding: 0;
+}
+.nav-active{
+	background: #e1051a;
+	color: #fff;
+}
+.nav-active a{
+	color: #fff;
+}
+/*顶部*/
+.top{
+	background: #000;
+	height: 30px;
+	line-height:30px;
+	color: #fff;
+	font-size: 12px;
+}
+.top span{
+	margin-right: 10px;
+	cursor: pointer;
+}
+/*nav*/
+.top-nav{
+	height: 50px;
+	background: #f1f1f1;
+	font-size: 14px;
+    line-height: 50px;
+}
+
+/*nav图片*/
+.nav-pic {
+	width: 100%;
+}
+.nav-pic img{
+	width: 100%;
+	height: 100%;
+	min-width: 1000px;
+}
+/*选择*/
+.choose{
+	background: #fff;
+	overflow: hidden;
+	color: #000;
+}

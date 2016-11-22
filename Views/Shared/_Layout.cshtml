@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <style>
+        .navbar-collapse .nav li a{
+            color:#000;
+        }
+        .navbar-collapse .nav li a:hover{
+            background:#e1051a;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div style="width:100%;background:#000;">
+            <div class="container">
+                  @Html.Partial("_LoginPartial")
+            </div>            
+        </div>                       
+        <div class="navbar-collapse collapse" style="background:#f1f1f1;line-height:50px;">
+            <div class="container">
+                <img src="../images/logo.png" width="100" height="30" />
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("行情中心", "Market", "Home")</li>
+                    <li>@Html.ActionLink("交易", "Trade", "Home")</li>                   
+                    <li>@Html.ActionLink("资讯", "Message", "Home")</li>
+                    <li>@Html.ActionLink("日历", "Calendar", "Home")</li>
+                </ul>  
+            </div>                            
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer class="container">
+            @*<p>&copy; @DateTime.Now.Year - 易石财经</p>*@
+        </footer>
+    </div>
+
+   <script type="text/javascript">
+       @RenderSection("jsCode",required:false)
+   </script>
+</body>
+</html>

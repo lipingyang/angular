@@ -1,0 +1,31 @@
+﻿<div class="left">
+    <img src="../images/poster.png" width="730" height="200" />
+    <ul class="listview">
+        <h1>今日资讯</h1>
+        <li ng-repeat="new in message.newlist">
+            <div class="icon" style="float: left;">
+                <img ng-src="{{new.img}}" width="260" height="150" />
+            </div>
+            <div class="data pull-left">
+                <h4>{{new.four}}</h4>
+                <h5>{{new.five}}</h5>
+                <h6>>{{new.six}}</h6>
+                <p>
+                    <img src="../images/eye.png" width="20" height="10" />
+                    <span>阅读量:{{new.read}}</span>
+                    <span class="fr">{{new.data}}</span>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="right">
+    <h1>热点资讯</h1>
+    <ul>
+        <li ng-repeat="right in message.rightlist" ng-mouseenter="show = true" ng-mouseleave="show = false">
+            <span class="red-dotted">●</span>
+            <span>{{right.txt}}</span>
+            <img ng-src="{{right.img}}" ng-show="show">
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,86 @@
+.left{
+	width: 210px;
+}
+.calendar{
+	min-width: 1000px;
+	width: 1000px;
+	height: 600px;
+	margin: 20px auto 100px;
+}
+
+.right{
+	width: 750px;
+	background:#fff;
+	padding-left: 0px;
+}
+.news-source{
+	width:100px;
+	height: 180px;
+	line-height: 180px;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	text-align: center;
+}
+.contain-head{
+	height: 30px;
+	width: 650px;
+	background: #f6f6f6;
+	line-height: 30px;
+	padding-left: 20px;
+}
+.contain-head span{
+	display: inline-block;
+	margin-right: 60px;
+	font-family: "microsoft yahei";
+}
+
+.news-contain ul li{
+	height: 65px;
+	width: 630px;
+	border-bottom: 1px dotted #eee;
+	border-left: 1px dotted #eee;
+	font-family: "microsoft yahei";
+}
+.news{
+	overflow: hidden;
+	border-bottom: 1px solid #eee;
+}
+.flag{
+	width: 10%;
+	height: 100%;
+	text-align: center;
+	padding-top: 10px;
+}
+.gold-star{
+	color: #ffb400;
+}
+.gray-star{
+	color: #ccc;
+}
+.change{
+	width: 77%;
+	height: 100%;
+}
+.change h2{
+	font-size: 16px;
+	line-height: 20px;
+	margin-top: 10px;
+}
+.change p{
+	margin-top: 13px;
+	color: #aaa;
+}
+.change span{
+	display: inline-block;
+	margin-right: 15px;
+}
+.clock{
+	width:13%;
+	height: 100%;
+	background: url(../images/clock.png) no-repeat;
+	background-position: left center;
+	background-size: 20px;
+	color: #ae763d;
+	line-height: 65px;
+	padding-left: 30px;
+}

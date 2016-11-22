@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/market")
+<style>
+    .red{
+        background-color:red;
+        color:#fff;
+    }
+    .blue{
+        background-color:green;
+        color:#fff;
+    }
+    .finger{
+        cursor:pointer;
+    }
+</style>
+<div>
+    <div ng-app="market" ng-controller="MarketController as market">
+        <!--行情中心图片-->
+        <div class="nav-pic">
+            <img src="../images/marketBg.png" />
+        </div>
+        <!--图标区域-->
+        <div class="form container">
+            <div class="form-left">
+                <!-- Swiper -->
+                <div class="form-left-top">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">沪津1111</div>
+                            <div class="swiper-slide">沪津2</div>
+                            <div class="swiper-slide">沪津3</div>
+                            <div class="swiper-slide">沪津4</div>
+                            <div class="swiper-slide">沪津5</div>
+                            <div class="swiper-slide">沪津6</div>
+                            <div class="swiper-slide">沪津7</div>
+                            <div class="swiper-slide">沪津8</div>
+                            <div class="swiper-slide">沪津9</div>
+                            <div class="swiper-slide">沪津10</div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-button-next">></div>
+                    <div class="swiper-button-prev"><</div>
+                </div>
+                <!--股票行情-->
+                <div class="form-left-bottom">
+                    <div class="stock-kind">
+                        <div>
+                           交易品名称
+                        </div>
+                        <div>成交价{{symbol}}</div>
+                        <div>涨跌幅</div>
+                    </div>
+
+                    <div ng-repeat="dataMeta in market.products"  >
+                       <span  ng-click="clickAndGetSymbol($event)" class="finger">{{dataMeta.display}}</span> 
+                        <span class="{{dataMeta.color}}" >{{dataMeta.price}}</span>
+                    </div>
+                       
+                </div>
+            </div>
+            <!--股票走势-->
+            <div class="form-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" ng-click="interval(60)">1分</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(300)">5分</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(900)">15分</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(1800)">30分</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(3600)">60分</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(86400)">日线</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(604800)">周线</button>
+                        <button type="button" class="btn btn-default" ng-click="interval(2592000)">月线</button>
+                    </div>
+                <div id="container" style="height: 90%">
+                    <highchart id="chart1" config="chartConfig"></highchart>
+                </div>
+            </div>
+            <!--最新讯息-->
+            @*<div class="news">
+                <div class="news-top">
+                    <span>最新讯息</span>
+                    <span><</span>
+                    <span>></span>
+                </div>
+                <div class='news-detail' ng-repeat="new in market.new">
+                    <p class='news-detail-top'>
+                        <spna style='color: red;'> ●  </spna> {{new.news}}
+                    </p>
+                    <p class='news-detail-bottom'>
+                        <span> 实际值: </span>
+                        <span> {{new.reality}} </span>
+                        <span> 前值: </span>
+                        <span> {{new.front}} </span>
+
+                    </p>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-xs btn-p">数据1</button>
+                <button type="button" class="btn btn-primary btn-xs restore" id="getRealTimeQuote">数据2</button>
+            </div>*@
+
+
+
+        </div>
+    </div>
+</div>
+
+    @Scripts.Render("~/bundles/market")
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            pagination: '.swiper-pagination',
+            slidesPerView: 3,
+            paginationClickable: true,
+            spaceBetween: 1,
+        });
+
+        $(".swiper-slide").click(function () {
+            $(this).siblings().css({
+                "background": "#fff",
+                "color": "#000"
+            });
+            $(this).css({
+                "background": "#e1051a",
+                "color": "#fff"
+            });
+        });
+    </script>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+

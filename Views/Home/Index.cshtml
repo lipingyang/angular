@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/index")
+
+@*<div class='stock-kind' ng-repeat="kind in market.products">
+    <span>{{kind.name}}</span>
+    <span> {{kind}}</span>
+    <span>{{y}}</span>
+</div>*@
+
+<style>
+
+    .swiper-container {
+        height: 600px;
+    }
+
+        .swiper-container img {
+            height: 100%;
+            width: 100%;
+        }
+
+    .swiper-button-next,
+    .swiper-container-rtl .swiper-button-prev {
+        width: 60px;
+        height: 30px;
+        top: 85%;
+        right: 50%;
+        margin-right: -30px;
+        background: url(../images/next-btn.png);
+    }
+
+    .swiper-pagination-bullet {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        border-radius: 100%;
+        background: transparent;
+        opacity: 1;
+        border: 1px solid #fff;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: red;
+        border: none;
+    }
+    #registerLink{
+        color:#fff;
+    }
+    #loginLink{
+        color:#fff;
+    }
+</style>
+<!--轮播图-->
+<div ng-app="store" ng-controller="StoreController as store">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="pic in store.images">
+                <img ng-src="{{pic}}" />
+            </div>
+        </div>
+        <!--注册、登录-->
+        <div class="login-bg">
+
+        </div>
+        <div class="login">
+            <button type="button" class="btn red-btn">@Html.ActionLink("注册", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            </button>
+            <button type="button" class="btn regist-now">@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+            <p>先逛一逛>></p>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+    </div>
+    <!--轮播图-->
+    <div class="foot">
+        <div class="foot-bottom"></div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4" ng-repeat="text in store.texts">
+                <p>{{text.p1}}</p>
+                <p class="f-12">{{text.p2}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/index")
+<script>
+		window.onload = function() {
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+				direction: 'vertical',
+				loop: true,
+				autoplay: 3000,
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+			});
+		}
+</script>

@@ -1,0 +1,117 @@
+.nav-pic{
+	margin-bottom: 20px;
+}
+.form {
+	min-width: 1200px;
+	margin: 0 auto;
+}
+
+.form-left{
+	width: 280px;
+	height: 400px;
+	float: left;
+}
+.form-left-top{
+	 width: 280px;
+	 height: 30px;
+	 position: relative;
+	 background-color: #fff;
+}
+.form-left-bottom{
+	width: 280px;margin-top: 10px;background: #fff; 
+}
+.form-right{
+	width: 850px;
+	height: 400px;
+	background: #fff;
+	float: right;
+}
+
+.stock-kind {
+	height: 40px;
+	border-bottom: 1px solid #ededed;
+}
+
+.stock-kind div {
+	width: 33%;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+}
+
+.swiper-container {
+    width: 220px;
+    height: 30px;
+}
+.swiper-wrapper{
+	width: 10000px;
+	background: #ededed;
+}
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+    line-height: 30px;
+    cursor: pointer;
+}
+.swiper-button-next,.swiper-button-prev{
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+}
+/*最新信息*/
+.news{
+	width: 280px;
+	background: #fff;
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+.news-top{
+	height: 55px;
+	width: 260px;
+	padding-left: 20px;
+}
+.news-top span{
+	display: inline-block;
+	line-height: 55px;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-right: 20px;
+}
+.news-detail{
+	height: 65px;
+	width: 260px;
+	margin: 0 auto;
+	background: url(../images/newsDash.png) repeat-x bottom;
+	line-height: 20px;
+	padding-top: 10px;
+}
+.news-detail-top{
+	font-family: "microsoft yahei";
+	font-size: 14px;
+	padding-left: 10px;
+}
+.news-detail-bottom{
+	padding-left: 18px;
+	font-family: "microsoft yahei";
+}
+.news-detail-bottom span{
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+#container1{
+	 height: 400px;
+	 float: left;
+	 width: 700px;
+	 background: #fff;
+}
+
+
+.btn-area{
+	float: right;
+	background: #fff;
+	width: 700px;
+	margin-top: 20px;
+}
