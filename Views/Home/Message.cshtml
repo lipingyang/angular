@@ -1,9 +1,9 @@
-﻿@{
+@{
     ViewBag.Title = "Contact";
 }
 @Styles.Render("~/Content/message")
 
-<div ng-app="message" ng-controller="MessageController as message">
+<div ng-app="Message" ng-controller="MessageController">
     <!--行情中心图片-->
     <div class="nav-pic">
         <img src="../images/marketBg.png" />
@@ -12,23 +12,47 @@
     <div class="choose">
         <div class="middle">
             <ul class="nav navbar-nav nav-pills">
-                <li>
-                    <a href="#/important">要闻</a>
+                <li ng-repeat="item in Menu">
+                    <a ng-click="GetList(item.CategoryId)">{{item.CategoryName}}</a>
                 </li>
-                <li>
-                    <a href="#/push">推送</a>
-                </li>
-                <li>
-                    <a href="#/live">直播</a>
-                </li>
-                <li>
-                    <a href="#/foreign">外汇</a>
-                </li>
+            
             </ul>
         </div>
     </div>
-    <div class="main" ng-view>
+    <div class="main">
         
+            <div class="left">
+                <img src="../images/poster.png" width="730" height="200" />
+                <ul class="listview">
+                    <h1>今日资讯</h1>
+                    <li ng-repeat="list in ListData">
+                        <div class="icon" style="float: left;">
+                            <img ng-src="{{list.IconUrl}}" width="260" height="150" />
+                        </div>
+                        <div class="data pull-left">
+                            <h4>{{list.Title}}</h4>
+                            <h5></h5>
+                            <h6>></h6>
+                            <p>
+                                <img src="" width="20" height="10" />
+                                <span>阅读量:</span>
+                                <span class="fr">{{list.Time*1000 | date:"MM/dd/yyyy"}}</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h1>热点资讯</h1>
+                <ul>
+                    <li ng-repeat="right in ListData" ng-mouseenter="show = true" ng-mouseleave="show = false">
+                        <span class="red-dotted">●</span>
+                        <span>{{right.Title}}</span>
+                        <img ng-src="{{right.IconUrl}}" ng-show="show">
+                    </li>
+                </ul>
+            </div>
+       
     </div>
 </div>
 
