@@ -1,4 +1,4 @@
-﻿
+
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,13 +9,18 @@
         background-color:red;
         color:#fff;
     }
-    .blue{
+    .green{
         background-color:green;
         color:#fff;
     }
     .finger{
         cursor:pointer;
     }
+    .list{
+        padding:0px 20px;
+    }
+    .datainput{width:30px;height:19px;}
+    .dropdown-menu{width:300px}
 </style>
 <div>
     <div ng-app="market" ng-controller="MarketController as market">
@@ -56,16 +61,61 @@
                         <div>涨跌幅</div>
                     </div>
 
-                    <div ng-repeat="dataMeta in market.products"  >
-                       <span  ng-click="clickAndGetSymbol($event)" class="finger">{{dataMeta.display}}</span> 
-                        <span class="{{dataMeta.color}}" >{{dataMeta.price}}</span>
+                    <div ng-repeat="dataMeta in products"  >
+                       <span  ng-click="clickAndGetSymbol()" class="finger">{{dataMeta.display}}</span> 
+                        <span class="{{dataMeta.color}}" ng-model="price">{{dataMeta.price}}</span>
                     </div>
                        
                 </div>
             </div>
             <!--股票走势-->
             <div class="form-right">
-                    <div class="btn-group">
+                <div class="dropdown pull-left">
+                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                        +Add Indiactor
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
+                        <li role="presentation" data-stopPropagation="true">
+                            <a role="menuitem" tabindex="-1" href="#">SMA<span class="pull-right" ng-click="addSMA()">+</span></a>
+                            <span ng-repeat="list in SMAList" class="list" ng-show="periodshow">   
+                                <span>color:<select ng-model="chartC" ng-options="color for color in chartColor" ng-click="abc()"></select></span>                             
+                                <span>period:<input type="text" ng-model="list.period" class="datainput"/>                                
+                                </span>
+                                <span class="pull-right list finger" ng-click="delete(item)">×</span>
+                                <span ng-click="xiugai()" class="pull-right">修改</span>
+                                
+                            </span>
+                        </li>
+                        <li role="presentation" ng-click="addEMA()" data-stopPropagation="true">
+                            <a role="menuitem" tabindex="-1" href="#">EMA</a>
+                        </li>
+                        <li role="presentation" ng-click="addMFI()" data-stopPropagation="true">
+                            <a role="menuitem" tabindex="-1" href="#">MFI</a>
+                        </li>
+                        <li role="presentation" ng-click="addMCAD()" data-stopPropagation="true">
+                            <a role="menuitem" tabindex="-1" href="#">MCAD</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown pull-left">
+                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                        +Compare
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">DOW</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">NASDAQ</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">S&P 500</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group pull-left">
                         <button type="button" class="btn btn-default" ng-click="interval(60)">1分</button>
                         <button type="button" class="btn btn-default" ng-click="interval(300)">5分</button>
                         <button type="button" class="btn btn-default" ng-click="interval(900)">15分</button>
@@ -74,9 +124,23 @@
                         <button type="button" class="btn btn-default" ng-click="interval(86400)">日线</button>
                         <button type="button" class="btn btn-default" ng-click="interval(604800)">周线</button>
                         <button type="button" class="btn btn-default" ng-click="interval(2592000)">月线</button>
-                    </div>
-                <div id="container" style="height: 90%">
-                    <highchart id="chart1" config="chartConfig"></highchart>
+                </div>
+                <div class="dropdown pull-left">
+                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                        Shape
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" ng-click="changeStyle('candlestick')">CandleStick</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" ng-click="changeStyle('line')">Line</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="container" style="height: 90%;max-height:600px">
+                    <highchart id="chart1" config="chartConfig" style="height:100%"></highchart>
                 </div>
             </div>
             <!--最新讯息-->
@@ -129,6 +193,12 @@
             $(this).css({
                 "background": "#e1051a",
                 "color": "#fff"
+            });
+        });
+
+        $(function () {
+            $("ul.dropdown-menu").on("click", "[data-stopPropagation]", function (e) {
+                e.stopPropagation();
             });
         });
     </script>
